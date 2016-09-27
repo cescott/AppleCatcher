@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/AppleCatcher_LibGdx.iml" filepath="$PROJECT_DIR$/AppleCatcher_LibGdx.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/desktop/desktop.iml" filepath="$PROJECT_DIR$/desktop/desktop.iml" />
       <module fileurl="file://$PROJECT_DIR$/html/html.iml" filepath="$PROJECT_DIR$/html/html.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/AppleCatcher.iml" filepath="$PROJECT_DIR$/.idea/AppleCatcher.iml" />
+>>>>>>> origin/master
     </modules>
   </component>
 </project>
