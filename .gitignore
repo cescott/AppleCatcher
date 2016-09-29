@@ -21,3 +21,5 @@ hs_err_pid*
 applecatcher.iml
 .DS_Store
 AppleCatcher/html/html.iml
+.html/build
+.core/build
