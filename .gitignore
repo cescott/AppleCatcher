@@ -23,7 +23,10 @@ applecatcher.iml
 AppleCatcher/html/html.iml
 .html/build
 .core/build
-AppleCatcher/html/build/*
+AppleCatcher/html/build/
+AppleCatcher/html/build
+AppleCatcher/html
+AppleCatcher/html/
 
 # jesus CHRIST
 # Temporary Files
@@ -179,4 +182,3 @@ libgdx-*.zip.MD5
 /gradlew.bat
 
 /local.properties
-AppleCatcher/core/core.iml
