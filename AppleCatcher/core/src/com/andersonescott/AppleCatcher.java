@@ -13,7 +13,7 @@ public class AppleCatcher extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		img = new Texture("red_panda_02.jpg");
 	}
 
 	@Override
