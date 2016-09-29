@@ -23,10 +23,7 @@ applecatcher.iml
 AppleCatcher/html/html.iml
 .html/build
 .core/build
-AppleCatcher/html/build/
-AppleCatcher/html/build
-AppleCatcher/html
-AppleCatcher/html/
+AppleCatcher\html\build\
 
 # jesus CHRIST
 # Temporary Files
