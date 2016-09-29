@@ -749,12 +749,6 @@ Compiling module com.andersonescott.GdxDefinitionSuperdev
             not emitting code for accessing method StringIndexOutOfBoundsException in class 'java.lang.StringIndexOutOfBoundsException.class, either in java.* or GWT related class
             not emitting code for accessing method StringIndexOutOfBoundsException in class 'java.lang.StringIndexOutOfBoundsException.class, either in java.* or GWT related class
             412 types reflected
-   Adding '1' new generated units
-      Validating units:
-         Warnings in 'C:\Users\charl\Documents\GitHub\AppleCatcher\AppleCatcher\html\build\gwt\work\com.andersonescott.GdxDefinitionSuperdev\compile-1\gen\com\badlogic\gwtref\client\IReflectionCacheGenerated.java'
-            See snapshot: C:\Users\charl\AppData\Local\Temp\com.badlogic.gwtref.client.IReflectionCacheGenerated2845159860543483787.java
-         Ignored 1 unit with compilation errors in first pass.
-Compile with -strict or with -logLevel set to TRACE or DEBUG to see all errors.
    Compiling 1 permutation
       Compiling permutation 0...
       Source Maps Enabled
@@ -766,5 +760,5 @@ soundmanager2-setup.js
 soundmanager2-jsmin.js
 
    Link succeeded
-   Compilation succeeded -- 7.378s
-Compile completed in 7577 ms
+   Compilation succeeded -- 8.095s
+Compile completed in 8298 ms
