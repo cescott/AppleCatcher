@@ -182,3 +182,8 @@ libgdx-*.zip.MD5
 /gradlew.bat
 
 /local.properties
+AppleCatcher/gradle/wrapper/gradle-wrapper.jar
+
+AppleCatcher/gradle/wrapper/gradle-wrapper.properties
+
+AppleCatcher/gradlew
