@@ -1,5 +1,5 @@
 d:assets:0:application/unknown
-i:applecatcher_bg.png:325784:image/png
+i:applecatcher_bg.jpg:142933:image/jpeg
 i:red_panda_02.jpg:67500:image/jpeg
 t:com/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl:770:application/unknown
 t:com/badlogic/gdx/graphics/g3d/particles/particles.vertex.glsl:2886:application/unknown
