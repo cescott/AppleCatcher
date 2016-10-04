@@ -1,14 +1,14 @@
 package com.andersonescott;
 
-/**
- * Created by JackassNoonNerd on 9/29/16.
- */
+import com.badlogic.gdx.graphics.Texture;
+
 public class Player extends Entity {
 
     protected int score;
 
     public Player(double[] tempCoords, double[] tempVelocity, int tempScore){
         super(tempCoords, tempVelocity);
+        image = new Texture("player.jpg");
         score = tempScore;
     }
 

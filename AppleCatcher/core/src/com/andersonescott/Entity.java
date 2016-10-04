@@ -2,9 +2,6 @@ package com.andersonescott;
 
 import com.badlogic.gdx.graphics.Texture;
 
-/**
- * Created by JackassNoonNerd on 9/29/16.
- */
 public abstract class Entity {
     protected double[] coords = new double[2];
     protected double[] velocity = new double[2];
@@ -33,6 +30,7 @@ public abstract class Entity {
     public void setVelocity(double[] velocity) {
         this.velocity = velocity;
     }
+
     public Texture getImage(){
         return image;
     }

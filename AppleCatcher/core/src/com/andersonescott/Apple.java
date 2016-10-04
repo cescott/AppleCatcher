@@ -1,10 +1,12 @@
 package com.andersonescott;
 
-/**
- * Created by JackassNoonNerd on 9/29/16.
- */
+import com.badlogic.gdx.graphics.Texture;
+
 public class Apple extends Entity{
+
     public Apple(double[] tempCoords, double[] tempVelocity){
         super(tempCoords, tempVelocity);
+        image = new Texture("apple.jpg");
     }
+
 }
