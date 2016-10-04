@@ -1,7 +1,6 @@
 package com.andersonescott.gameworld;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
+
 import com.badlogic.gdx.Screen;
 
 
@@ -12,7 +11,7 @@ public class GameScreen implements Screen {
 
     public GameScreen(){
         world = new GameWorld();
-        renderer = new GameRenderer();
+        renderer = new GameRenderer(world);
     }
 
     @Override

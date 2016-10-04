@@ -6,7 +6,7 @@ public class Apple extends Entity{
 
     public Apple(double[] tempCoords, double[] tempVelocity){
         super(tempCoords, tempVelocity);
-        image = new Texture("apple.jpg");
+        image = new Texture("applecatcher_apple.jpg");
     }
 
 }
