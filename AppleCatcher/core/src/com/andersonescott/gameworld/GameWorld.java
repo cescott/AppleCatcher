@@ -4,17 +4,33 @@ package com.andersonescott.gameworld;
 import com.andersonescott.Apple;
 import com.andersonescott.Player;
 
+import java.util.ArrayList;
+
 public class GameWorld {
 
-    protected Apple apple;
+    protected ArrayList<Apple> apples;
     protected Player player;
 
     public GameWorld(){
         player = new Player(new double[] {300, 0}, 0);
-        apple = new Apple(new double[] {(Math.random()*800), 600});
+        apples.add(new Apple(new double[] {(Math.random()*800), 600}));
     }
-    public void update(float delta){
-        player.update(delta);
 
+    public void update(float delta){
+        //update player
+        player.update(delta);
+        //update all the apples
+        for (int i=0; i<apples.size();i++){
+            apples.get(i).update(delta);
+        }
     }
+
+    public Player getPlayer(){
+        return player;
+    }
+
+    public ArrayList<Apple> getApples(){
+        return apples;
+    }
+
 }

@@ -16,13 +16,11 @@ public class GameRenderer {
     protected SpriteBatch batch;
 
     protected Texture background;
-    protected Texture apple;
 
     public GameRenderer(GameWorld tempWorld){
         world = tempWorld;
         batch = new SpriteBatch();
         background = new Texture("applecatcher_bg.jpg");
-        apple = new Texture("applecatcher_apple.png");
         cam = new OrthographicCamera();
         cam.setToOrtho(true, 800, 600);
     }
@@ -35,8 +33,10 @@ public class GameRenderer {
         batch.begin();
         //draw background
         batch.draw(background, 0, 0);
-        //draw apple
-        batch.draw(apple, 50, 50);
+        //draw apples
+        for (int i=0; i<world.getApples().size();i++){
+            batch.draw(world.getApples().get(i).getImage(), (int)world.getApples().get(i).x(), (int)world.getApples().get(i).y());
+        }
         batch.end();
     }
 }
