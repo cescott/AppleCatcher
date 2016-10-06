@@ -11,11 +11,13 @@ public class GameRenderer {
     protected GameWorld world;
     protected SpriteBatch batch;
     protected Texture background;
+    protected Texture apple;
 
     public GameRenderer(GameWorld tempWorld){
         world = tempWorld;
         batch = new SpriteBatch();
         background = new Texture("applecatcher_bg.jpg");
+        apple = new Texture("applecatcher_apple.png");
     }
 
     public void render(){
@@ -24,6 +26,7 @@ public class GameRenderer {
 
         batch.begin();
         batch.draw(background, 0, 0);
+        batch.draw(apple, 0, 0);
         batch.end();
     }
 }
