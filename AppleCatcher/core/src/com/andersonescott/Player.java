@@ -6,8 +6,8 @@ public class Player extends Entity {
 
     protected int score;
 
-    public Player(double[] tempCoords, double[] tempVelocity, int tempScore){
-        super(tempCoords, tempVelocity);
+    public Player(double[] tempCoords, int tempScore){
+        super(tempCoords);
         image = new Texture("player.jpg");
         score = tempScore;
     }
