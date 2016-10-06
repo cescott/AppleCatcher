@@ -8,8 +8,8 @@ public class Apple extends Entity{
 
     public Apple(double[] tempCoords){
         super(tempCoords);
-        image = new Texture("applecatcher_apple.jpg");
-        acceleration = new double[]{0, 400};
+        image = new Texture("applecatcher_apple.png");
+        acceleration = new double[]{0, -400};
     }
 
     

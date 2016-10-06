@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class GameWorld {
 
-    protected ArrayList<Apple> apples;
+    protected ArrayList<Apple> apples= new ArrayList<Apple>();
     protected Player player;
 
     public GameWorld(){
