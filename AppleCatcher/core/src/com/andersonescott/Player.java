@@ -8,7 +8,7 @@ public class Player extends Entity {
 
     public Player(double[] tempCoords, int tempScore){
         super(tempCoords);
-        image = new Texture("player.jpg");
+        image = new Texture("applecatcher_bill.png");
         score = tempScore;
     }
 
