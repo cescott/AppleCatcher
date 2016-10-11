@@ -14,7 +14,8 @@ public class GameWorld {
     protected int counter;
 
     public GameWorld(){
-        player = new Player(new double[] {350, 0}, 0);
+        player = new Player(new double[] {350, 10}, 0);
+        player.setVelocity(new double[] {100, 0});
         score = 0;
     }
 
@@ -55,9 +56,16 @@ public class GameWorld {
                     || (apples.get(i).x() >= 720 && apples.get(i).getVelocity()[0] > 0)) {
                 apples.get(i).setVelocity(new double[]{apples.get(i).getVelocity()[0] * -1, apples.get(i).getVelocity()[1]});
             }
-            if (apples.get(i).y() <= 2) {
+            if (apples.get(i).y() <= 10) {
                 apples.remove(i);
             }
+            else if (Math.abs(apples.get(i).y() - player.y()) <= 200 && Math.abs(apples.get(i).x() - player.x()) <= 100) {
+                score++;
+                apples.remove(i);
+            }
+        }
+        if ((player.x() <= 0 && player.getVelocity()[0] < 0) || (player.x() >= 700 && player.getVelocity()[0] > 0)) {
+            player.setVelocity(new double[]{player.getVelocity()[0] * -1, player.getVelocity()[1]});
         }
     }
 
