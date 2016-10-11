@@ -1,8 +1,8 @@
 package com.andersonescott.gameworld;
 
 
-import com.andersonescott.Apple;
-import com.andersonescott.Player;
+import com.andersonescott.objects.Apple;
+import com.andersonescott.objects.Player;
 
 import java.util.ArrayList;
 

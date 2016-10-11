@@ -2,6 +2,8 @@ package com.andersonescott;
 
 import com.andersonescott.gameworld.GameScreen;
 
+import com.andersonescott.objects.Apple;
+import com.andersonescott.objects.Player;
 import com.badlogic.gdx.Game;
 
 

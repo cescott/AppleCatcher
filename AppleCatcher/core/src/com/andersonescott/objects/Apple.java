@@ -1,8 +1,8 @@
-package com.andersonescott;
+package com.andersonescott.objects;
 
 import com.badlogic.gdx.graphics.Texture;
 
-public class Apple extends Entity{
+public class Apple extends Entity {
 
     static int counter;
 
