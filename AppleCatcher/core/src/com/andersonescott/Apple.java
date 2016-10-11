@@ -12,6 +12,6 @@ public class Apple extends Entity{
         acceleration = new double[]{0, -400};
     }
 
-    
+
 
 }
