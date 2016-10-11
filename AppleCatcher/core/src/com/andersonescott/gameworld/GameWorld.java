@@ -13,7 +13,7 @@ public class GameWorld {
 
     public GameWorld(){
         player = new Player(new double[] {300, 0}, 0);
-        apples.add(new Apple(new double[] {(Math.random()*800), 600}));
+        apples.add(new Apple(new double[] {(Math.random()*740), 600}));
     }
 
     public void update(float delta){
