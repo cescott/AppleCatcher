@@ -24,4 +24,25 @@ public class Player extends Entity {
     public void incrementScore(int value){
         score += value;
     }
+
+    public void input(String state,int keycode){
+
+        if (keycode == 21){ //left arrow
+            if (state.equals("pressed")) {
+                velocity[0] = -800;
+            }
+            else if (state.equals("released")){
+                velocity[0] = 0;
+            }
+        }
+
+        else if (keycode == 22){ //right arrow
+            if (state.equals("pressed")) {
+                velocity[0] = 800;
+            }
+            else if (state.equals("released")){
+                velocity[0] = 0;
+            }
+        }
+    }
 }
