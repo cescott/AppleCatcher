@@ -37,6 +37,8 @@ public class GameRenderer {
         for (int i=0; i<world.getApples().size();i++){
             batch.draw(world.getApples().get(i).getImage(), (int)world.getApples().get(i).x(), (int)world.getApples().get(i).y());
         }
+        //draw player
+        batch.draw(world.getPlayer().getImage(), (int)world.getPlayer().x(), (int)world.getPlayer().y());
         batch.end();
     }
 }
