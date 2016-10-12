@@ -1,6 +1,5 @@
 package com.andersonescott.objects;
 
-import com.andersonescott.objects.Entity;
 import com.badlogic.gdx.graphics.Texture;
 
 public class Player extends Entity {

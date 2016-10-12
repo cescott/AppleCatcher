@@ -3,7 +3,6 @@ package com.andersonescott.objects;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-@SuppressWarnings("WeakerAccess")
 public class Scoreboard {
     protected float[] coords = {700,570};
     protected int score;
