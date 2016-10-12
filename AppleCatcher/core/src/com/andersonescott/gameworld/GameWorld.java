@@ -15,9 +15,16 @@ public class GameWorld {
 
     protected int counter;
 
+    protected GameState gameState;
+
+    public enum GameState {
+        RUNNING, GAMEOVER
+    }
+
     public GameWorld(){
         player = new Player(new double[] {350, 10}, 0);
         scoreboard = new Scoreboard();
+        gameState = GameState.RUNNING;
     }
 
     public void update(float delta){
