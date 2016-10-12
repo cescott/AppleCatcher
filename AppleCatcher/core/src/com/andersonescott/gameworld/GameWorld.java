@@ -3,6 +3,7 @@ package com.andersonescott.gameworld;
 
 import com.andersonescott.objects.Apple;
 import com.andersonescott.objects.Player;
+import com.andersonescott.objects.Scoreboard;
 
 import java.util.ArrayList;
 
@@ -10,13 +11,13 @@ public class GameWorld {
 
     protected ArrayList<Apple> apples= new ArrayList<Apple>();
     protected Player player;
-    protected int score;
+    protected Scoreboard scoreboard;
+
     protected int counter;
 
     public GameWorld(){
         player = new Player(new double[] {350, 10}, 0);
-        player.setVelocity(new double[] {100, 0});
-        score = 0;
+        scoreboard = new Scoreboard();
     }
 
     public void update(float delta){
@@ -29,6 +30,8 @@ public class GameWorld {
         for (int i=0; i<apples.size();i++){
             apples.get(i).update(delta);
         }
+        //update scoreboard
+        scoreboard.update(player.getScore());
         //update collisions
         collisionUpdate();
     }
@@ -41,9 +44,13 @@ public class GameWorld {
         return apples;
     }
 
+    public Scoreboard getScoreboard(){
+        return scoreboard;
+    }
+
     public boolean appleCount() {
         counter++;
-        if ((double)counter/30 >= (20/(score + 5)) + 0.25) {
+        if (counter/30 >= (20/(player.getScore()+ 5)) + 0.25) {
             counter = 0;
             return true;
         }
@@ -60,7 +67,7 @@ public class GameWorld {
                 apples.remove(i);
             }
             else if (Math.abs(apples.get(i).y() - player.y()) <= 200 && Math.abs(apples.get(i).x() - player.x()) <= 100) {
-                score++;
+                player.incrementScore(1);
                 apples.remove(i);
             }
         }

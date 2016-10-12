@@ -39,6 +39,8 @@ public class GameRenderer {
         }
         //draw player
         batch.draw(world.getPlayer().getImage(), (int)world.getPlayer().x(), (int)world.getPlayer().y());
+        //draw scoreboard
+        world.getScoreboard().draw(batch);
         batch.end();
     }
 }
