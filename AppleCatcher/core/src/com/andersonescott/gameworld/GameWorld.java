@@ -3,7 +3,6 @@ package com.andersonescott.gameworld;
 
 import com.andersonescott.objects.Apple;
 import com.andersonescott.objects.Player;
-import com.andersonescott.objects.Scoreboard;
 
 import java.util.ArrayList;
 
@@ -11,7 +10,6 @@ public class GameWorld {
 
     protected ArrayList<Apple> apples= new ArrayList<Apple>();
     protected Player player;
-    protected Scoreboard scoreboard;
 
     protected int counter;
 
@@ -23,11 +21,20 @@ public class GameWorld {
 
     public GameWorld(){
         player = new Player(new double[] {350, 10}, 0);
-        scoreboard = new Scoreboard();
         gameState = GameState.RUNNING;
     }
 
     public void update(float delta){
+        switch (gameState){
+            case RUNNING:
+                updateRunning(delta);
+
+            case GAMEOVER:
+                //TODO
+        }
+    }
+
+    public void updateRunning(float delta){
         //update player
         player.update(delta);
         //update all the apples
@@ -37,10 +44,11 @@ public class GameWorld {
         for (int i=0; i<apples.size();i++){
             apples.get(i).update(delta);
         }
-        //update scoreboard
-        scoreboard.update(player.getScore());
         //update collisions
         collisionUpdate();
+        if (player.getLives() == 0){
+            gameState = GameState.GAMEOVER;
+        }
     }
 
     public Player getPlayer(){
@@ -51,8 +59,12 @@ public class GameWorld {
         return apples;
     }
 
-    public Scoreboard getScoreboard(){
-        return scoreboard;
+    public boolean isRunning(){
+        return gameState == GameState.RUNNING;
+    }
+
+    public boolean isGameover(){
+        return gameState == GameState.GAMEOVER;
     }
 
     public boolean appleCount() {
@@ -66,13 +78,17 @@ public class GameWorld {
 
     public void collisionUpdate() {
         for (int i = 0; i < apples.size(); i++) {
+            //handle bouncing off walls
             if ((apples.get(i).x() <= 0 && apples.get(i).getVelocity()[0] < 0)
                     || (apples.get(i).x() >= 720 && apples.get(i).getVelocity()[0] > 0)) {
                 apples.get(i).setVelocity(new double[]{apples.get(i).getVelocity()[0] * -1, apples.get(i).getVelocity()[1]});
             }
+            //hit ground
             if (apples.get(i).y() <= 10) {
                 apples.remove(i);
+                player.damage();
             }
+            //player catches it
             else if (Math.abs(apples.get(i).y() - player.y()) <= 200 && Math.abs(apples.get(i).x() - player.x()) <= 100) {
                 player.incrementScore(1);
                 apples.remove(i);

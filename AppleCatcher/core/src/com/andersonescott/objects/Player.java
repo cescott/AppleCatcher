@@ -5,11 +5,13 @@ import com.badlogic.gdx.graphics.Texture;
 public class Player extends Entity {
 
     protected int score;
+    protected int lives;
 
     public Player(double[] tempCoords, int tempScore){
         super(tempCoords);
         image = new Texture("applecatcher_bill.png");
         score = tempScore;
+        lives = 3;
     }
 
     public int getScore(){
@@ -24,7 +26,14 @@ public class Player extends Entity {
         score += value;
     }
 
-    public void input(String state,int keycode){
+    public int getLives() {
+        return lives;
+    }
+    public void damage(){
+        lives--;
+    }
+
+    public void input(String state, int keycode){
 
         if (keycode == 21){ //left arrow
             if (state.equals("pressed")) {
