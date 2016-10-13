@@ -8,11 +8,13 @@ import java.util.ArrayList;
 
 public class GameWorld {
 
+    //objects
     protected ArrayList<Apple> apples= new ArrayList<Apple>();
     protected Player player;
+
+    //apple count variables
     protected double num = 0;
     protected double currentScore = 0;
-
     protected int counter;
 
     protected GameState gameState;
@@ -23,6 +25,11 @@ public class GameWorld {
 
     public GameWorld(){
         player = new Player(new double[] {350, 10}, 0);
+        gameState = GameState.READY;
+    }
+
+    public void start(){
+        player.restart();
         gameState = GameState.RUNNING;
     }
 
@@ -32,6 +39,8 @@ public class GameWorld {
                 updateRunning(delta);
 
             case GAMEOVER:
+                //TODO
+            case READY:
                 //TODO
         }
     }
@@ -59,6 +68,10 @@ public class GameWorld {
 
     public ArrayList<Apple> getApples(){
         return apples;
+    }
+
+    public boolean isReady(){
+        return gameState == GameState.READY;
     }
 
     public boolean isRunning(){
@@ -109,6 +122,14 @@ public class GameWorld {
             player.setVelocity(new double[]{player.getVelocity()[0], 0});
             player.setCoords(new double[] {player.x(), 10});
         }
+    }
+
+    public void restart(){
+        player.restart();
+        apples.clear();
+        gameState = GameState.READY;
+        num = 0;
+        counter = 0;
     }
 
 }

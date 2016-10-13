@@ -18,7 +18,7 @@ public class GameRenderer {
 
     protected Texture background, hearts;
 
-    protected BitmapFont font = new BitmapFont();
+    protected BitmapFont font, title;
 
     public GameRenderer(GameWorld tempWorld){
         world = tempWorld;
@@ -27,7 +27,12 @@ public class GameRenderer {
         hearts = new Texture("applecatcher_heart.png");
         cam = new OrthographicCamera();
         cam.setToOrtho(true, 800, 600);
+        font = new BitmapFont();
+        title = new BitmapFont();
+
         font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+        title.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+        title.getData().setScale(1.25f);
     }
 
     public void render(){
@@ -49,6 +54,13 @@ public class GameRenderer {
         //draw lives
         for (int j=0; j<world.getPlayer().getLives(); j++){
             batch.draw(hearts, 10, 55*j+125);
+        }
+        if (world.isGameover()){
+            title.draw(batch, "Game Over", 400f, 300f);
+            title.draw(batch, "Score: "+world.getPlayer().getScore(), 400f, 250f);
+        }
+        if (world.isReady()){
+            title.draw(batch, "Press space to Start", 400f, 300f);
         }
         batch.end();
     }

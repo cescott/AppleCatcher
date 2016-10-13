@@ -28,6 +28,13 @@ public class InputHandler implements InputProcessor{
     @Override
     public boolean keyUp(int keycode) {
         player.input("released", keycode);
+        if (keycode == 62) {
+            if (world.isGameover()) {
+                world.restart();
+            } else if (world.isReady()) {
+                world.start();
+            }
+        }
         return true;
     }
 

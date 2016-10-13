@@ -29,8 +29,20 @@ public class Player extends Entity {
     public int getLives() {
         return lives;
     }
+
     public void damage(){
         lives--;
+    }
+
+    public void restart(){
+        coords[0] = 350;
+        coords[1] = 10;
+        velocity[0] = 0;
+        velocity[1] = 0;
+        acceleration[0] = 0;
+        acceleration[1] = 0;
+        score = 0;
+        lives = 3;
     }
 
     public void input(String state, int keycode){
@@ -53,7 +65,7 @@ public class Player extends Entity {
             }
         }
 
-        else if (keycode == 19) {
+        else if (keycode == 19) { //up arrow
             if (state.equals("pressed") && coords[1] == 10) {
                 velocity[1] = 1200;
                 acceleration[1] = -3600;
