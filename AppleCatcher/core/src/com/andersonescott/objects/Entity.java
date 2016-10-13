@@ -40,6 +40,14 @@ public abstract class Entity {
         this.velocity = velocity;
     }
 
+    public double[] getAcceleration() {
+        return acceleration;
+    }
+
+    public void setAcceleration(double[] accel) {
+        acceleration = accel;
+    }
+
     public Texture getImage(){
         return image;
     }

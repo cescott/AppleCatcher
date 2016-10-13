@@ -78,8 +78,16 @@ public class GameWorld {
                 apples.remove(i);
             }
         }
-        if ((player.x() <= 0 && player.getVelocity()[0] < 0) || (player.x() >= 700 && player.getVelocity()[0] > 0)) {
-            player.setVelocity(new double[]{player.getVelocity()[0] * -1, player.getVelocity()[1]});
+        if (player.x() <= 0 && player.getVelocity()[0] < 0) {
+            player.setCoords(new double[]{0, player.y()});
+        }
+        else if (player.x() >= 700 && player.getVelocity()[0] > 0) {
+            player.setCoords(new double[]{700, player.y()});
+        }
+        if (player.y() <= 10 && player.getAcceleration()[1] < 0) {
+            player.setAcceleration(new double[]{0, 0});
+            player.setVelocity(new double[]{player.getVelocity()[0], 0});
+            player.setCoords(new double[] {player.x(), 10});
         }
     }
 
