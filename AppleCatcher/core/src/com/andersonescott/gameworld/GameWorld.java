@@ -10,12 +10,8 @@ public class GameWorld {
 
     protected ArrayList<Apple> apples= new ArrayList<Apple>();
     protected Player player;
-<<<<<<< HEAD
-=======
-    protected Scoreboard scoreboard;
     protected double num = 0;
     protected double currentScore = 0;
->>>>>>> origin/master
 
     protected int counter;
 
