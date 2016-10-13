@@ -10,6 +10,12 @@ public class GameWorld {
 
     protected ArrayList<Apple> apples= new ArrayList<Apple>();
     protected Player player;
+<<<<<<< HEAD
+=======
+    protected Scoreboard scoreboard;
+    protected double num = 0;
+    protected double currentScore = 0;
+>>>>>>> origin/master
 
     protected int counter;
 
@@ -69,7 +75,9 @@ public class GameWorld {
 
     public boolean appleCount() {
         counter++;
-        if (counter/30 >= (20/(player.getScore()+ 5)) + 0.25) {
+        num = counter;
+        currentScore = player.getScore() + 20;
+        if (num/30 >= (75/currentScore) + 0.35) {
             counter = 0;
             return true;
         }
@@ -94,8 +102,16 @@ public class GameWorld {
                 apples.remove(i);
             }
         }
-        if ((player.x() <= 0 && player.getVelocity()[0] < 0) || (player.x() >= 700 && player.getVelocity()[0] > 0)) {
-            player.setVelocity(new double[]{player.getVelocity()[0] * -1, player.getVelocity()[1]});
+        if (player.x() <= 0 && player.getVelocity()[0] < 0) {
+            player.setCoords(new double[]{0, player.y()});
+        }
+        else if (player.x() >= 700 && player.getVelocity()[0] > 0) {
+            player.setCoords(new double[]{700, player.y()});
+        }
+        if (player.y() <= 10 && player.getAcceleration()[1] < 0) {
+            player.setAcceleration(new double[]{0, 0});
+            player.setVelocity(new double[]{player.getVelocity()[0], 0});
+            player.setCoords(new double[] {player.x(), 10});
         }
     }
 

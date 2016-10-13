@@ -37,19 +37,26 @@ public class Player extends Entity {
 
         if (keycode == 21){ //left arrow
             if (state.equals("pressed")) {
-                velocity[0] = -800;
+                velocity[0] = velocity[0] - 800;
             }
             else if (state.equals("released")){
-                velocity[0] = 0;
+                velocity[0] = velocity[0] + 800;
             }
         }
 
         else if (keycode == 22){ //right arrow
             if (state.equals("pressed")) {
-                velocity[0] = 800;
+                velocity[0] = velocity[0] + 800;
             }
             else if (state.equals("released")){
-                velocity[0] = 0;
+                velocity[0] = velocity[0] - 800;
+            }
+        }
+
+        else if (keycode == 19) {
+            if (state.equals("pressed") && coords[1] == 10) {
+                velocity[1] = 1200;
+                acceleration[1] = -3600;
             }
         }
     }
