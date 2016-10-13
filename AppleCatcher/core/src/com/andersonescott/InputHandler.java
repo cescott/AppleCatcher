@@ -1,16 +1,19 @@
 package com.andersonescott;
 
-
+import com.andersonescott.gameworld.GameWorld;
 import com.andersonescott.objects.Player;
 import com.badlogic.gdx.InputProcessor;
 
 public class InputHandler implements InputProcessor{
 
+    protected GameWorld world;
     protected Player player;
 
-    public InputHandler(Player tempPlayer){
-        player = tempPlayer;
+    public InputHandler(GameWorld tempWorld){
+        world = tempWorld;
+        player = world.getPlayer();
     }
+
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         return false;

@@ -18,7 +18,7 @@ public class GameWorld {
     protected GameState gameState;
 
     public enum GameState {
-        RUNNING, GAMEOVER
+        READY, RUNNING, GAMEOVER
     }
 
     public GameWorld(){
