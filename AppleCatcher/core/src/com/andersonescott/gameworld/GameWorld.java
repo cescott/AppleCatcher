@@ -12,6 +12,8 @@ public class GameWorld {
     protected ArrayList<Apple> apples= new ArrayList<Apple>();
     protected Player player;
     protected Scoreboard scoreboard;
+    protected double num = 0;
+    protected double currentScore = 0;
 
     protected int counter;
 
@@ -57,7 +59,9 @@ public class GameWorld {
 
     public boolean appleCount() {
         counter++;
-        if (counter/30 >= (20/(player.getScore()+ 5)) + 0.25) {
+        num = counter;
+        currentScore = player.getScore() + 20;
+        if (num/30 >= (75/currentScore) + 0.35) {
             counter = 0;
             return true;
         }
