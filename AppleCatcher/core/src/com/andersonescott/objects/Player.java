@@ -34,6 +34,18 @@ public class Player extends Entity {
         lives--;
     }
 
+    public void movement(boolean leftKey, boolean rightKey){
+        if (leftKey){
+            velocity[0] = -800;
+        }
+        if (rightKey){
+            velocity[0] = 800;
+        }
+        if (rightKey&&leftKey){
+            velocity[0] = 0;
+        }
+    }
+
     public void restart(){
         coords[0] = 350;
         coords[1] = 10;
@@ -45,9 +57,9 @@ public class Player extends Entity {
         lives = 3;
     }
 
-    public void input(String state, int keycode){
+    public void jump( int keycode){
 
-        if (keycode == 21){ //left arrow
+        /*if (keycode == 21){ //left arrow
             if (state.equals("pressed")) {
                 velocity[0] = velocity[0] - 800;
             }
@@ -63,10 +75,10 @@ public class Player extends Entity {
             else if (state.equals("released")){
                 velocity[0] = velocity[0] - 800;
             }
-        }
+        }*/
 
-        else if (keycode == 19) { //up arrow
-            if (state.equals("pressed") && coords[1] == 10) {
+        if (keycode == 19) { //up arrow
+            if (coords[1] == 10) {
                 velocity[1] = 1200;
                 acceleration[1] = -3600;
             }

@@ -17,6 +17,10 @@ public class GameWorld {
     protected double currentScore = 0;
     protected int counter;
 
+    //temp
+    protected boolean leftKey = false;
+    protected boolean rightKey = false;
+
     protected GameState gameState;
 
     public enum GameState {
@@ -29,7 +33,6 @@ public class GameWorld {
     }
 
     public void start(){
-        player.restart();
         gameState = GameState.RUNNING;
     }
 
@@ -46,6 +49,8 @@ public class GameWorld {
     }
 
     public void updateRunning(float delta){
+        //input movement of player
+        player.movement(leftKey, rightKey);
         //update player
         player.update(delta);
         //update all the apples
@@ -57,8 +62,28 @@ public class GameWorld {
         }
         //update collisions
         collisionUpdate();
+        //check if player is dead
         if (player.getLives() == 0){
             gameState = GameState.GAMEOVER;
+        }
+    }
+
+    public void updateKeys(boolean down, int keycode){
+        if (keycode == 21){
+            if (down) {
+                leftKey = true;
+            }
+            else {
+                leftKey = false;
+            }
+        }
+        else if (keycode == 22){
+            if (down){
+                rightKey = true;
+            }
+            else {
+                rightKey = false;
+            }
         }
     }
 
