@@ -21,24 +21,17 @@ public class InputHandler implements InputProcessor{
 
     @Override
     public boolean keyDown(int keycode) {
-        /*if (world.isRunning()){
-            player.input("pressed", keycode);
-        }*/
-        world.updateKeys(true, keycode);
+        player.input("pressed", keycode);
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        /*if (player.getVelocity()[0]!= 0){
-            player.input("released", keycode);
-        }*/
-        world.updateKeys(false, keycode);
+        player.input("released", keycode);
         if (keycode == 62) {
             if (world.isGameover()) {
                 world.restart();
-            }
-            else if (world.isReady()) {
+            } else if (world.isReady()) {
                 world.start();
             }
         }
