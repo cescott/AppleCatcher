@@ -4,6 +4,7 @@ package com.andersonescott.gameworld;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -18,7 +19,8 @@ public class GameRenderer {
 
     protected Texture background, hearts;
 
-    protected BitmapFont font, title;
+    protected BitmapFont font, title, gameTitle;
+    protected GlyphLayout layout;
 
     public GameRenderer(GameWorld tempWorld){
         world = tempWorld;
@@ -29,10 +31,14 @@ public class GameRenderer {
         cam.setToOrtho(true, 800, 600);
         font = new BitmapFont();
         title = new BitmapFont();
+        gameTitle = new BitmapFont();
+        layout = new GlyphLayout();
 
         font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         title.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         title.getData().setScale(1.25f);
+        gameTitle.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+        gameTitle.getData().setScale(5f);
     }
 
     public void render(){
@@ -56,11 +62,17 @@ public class GameRenderer {
             batch.draw(hearts, 10, 55*j+125);
         }
         if (world.isGameover()){
-            title.draw(batch, "Game Over", 400f, 300f);
-            title.draw(batch, "Score: "+world.getPlayer().getScore(), 400f, 250f);
+            layout.setText(title, "Game Over");
+            title.draw(batch, layout, (800-layout.width)/2, 300f);
+
+            layout.setText(title, "Score: "+world.getPlayer().getScore());
+            title.draw(batch, layout, (800-layout.width)/2, 250f);
         }
         if (world.isReady()){
-            title.draw(batch, "Press space to Start", 400f, 300f);
+            layout.setText(gameTitle, "Apple Catcher BETA");
+            gameTitle.draw(batch, layout, (800-layout.width)/2, 400f);
+            layout.setText(title, "Press space to Start");
+            title.draw(batch, layout, (800-layout.width)/2, 300f);
         }
         batch.end();
     }
