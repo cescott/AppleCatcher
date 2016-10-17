@@ -20,7 +20,7 @@ public class GameWorld {
     protected GameState gameState;
 
     public enum GameState {
-        READY, RUNNING, GAMEOVER
+        READY, RUNNING, GAMEOVER, PAUSED
     }
 
     public GameWorld(){
@@ -29,7 +29,14 @@ public class GameWorld {
     }
 
     public void start(){
-        player.restart();
+        gameState = GameState.RUNNING;
+    }
+
+    public void pause(){
+        gameState = GameState.PAUSED;
+    }
+
+    public void resume(){
         gameState = GameState.RUNNING;
     }
 
@@ -37,7 +44,8 @@ public class GameWorld {
         switch (gameState){
             case RUNNING:
                 updateRunning(delta);
-
+            case PAUSED:
+                //do nothing
             case GAMEOVER:
                 //TODO
             case READY:
@@ -80,6 +88,10 @@ public class GameWorld {
 
     public boolean isGameover(){
         return gameState == GameState.GAMEOVER;
+    }
+
+    public boolean isPaused() {
+        return gameState == GameState.PAUSED;
     }
 
     public boolean appleCount() {

@@ -31,8 +31,15 @@ public class InputHandler implements InputProcessor{
         if (keycode == 62) {
             if (world.isGameover()) {
                 world.restart();
-            } else if (world.isReady()) {
+            }
+            else if (world.isReady()) {
                 world.start();
+            }
+            else if (world.isRunning()) {
+                world.pause();
+            }
+            else if (world.isPaused()){
+                world.resume();
             }
         }
         return true;
