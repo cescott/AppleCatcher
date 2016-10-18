@@ -31,7 +31,7 @@ public class GameRenderer {
         cam.setToOrtho(true, 800, 600);
         font = new BitmapFont();
         title = new BitmapFont();
-        gameTitle = new BitmapFont(Gdx.files.internal("PenPineappleApplePen_0.fnt"));
+        gameTitle = new BitmapFont(Gdx.files.internal("PenPineappleApplePen.fnt"));
         layout = new GlyphLayout();
 
         font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
