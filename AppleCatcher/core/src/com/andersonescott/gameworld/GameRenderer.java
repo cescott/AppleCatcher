@@ -38,7 +38,7 @@ public class GameRenderer {
         title.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         title.getData().setScale(1.25f);
         gameTitle.setColor(1.0f, 1.0f, 1.0f, 1.0f);
-        gameTitle.getData().setScale(5f);
+        gameTitle.getData().setScale(3f);
     }
 
     public void render(){
