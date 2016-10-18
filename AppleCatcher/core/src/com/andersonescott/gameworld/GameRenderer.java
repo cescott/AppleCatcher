@@ -19,7 +19,7 @@ public class GameRenderer {
 
     protected Texture background, hearts;
 
-    protected BitmapFont font, title, gameTitle;
+    protected BitmapFont font, title, gameTitle, gameTitleShadow;
     protected GlyphLayout layout;
 
     public GameRenderer(GameWorld tempWorld){
@@ -32,13 +32,16 @@ public class GameRenderer {
         font = new BitmapFont();
         title = new BitmapFont();
         gameTitle = new BitmapFont(Gdx.files.internal("PenPineappleApplePen.fnt"));
+        gameTitleShadow = new BitmapFont(Gdx.files.internal("PenPineappleApplePen.fnt"));
         layout = new GlyphLayout();
 
         font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         title.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         title.getData().setScale(1.25f);
-        gameTitle.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+        gameTitle.setColor(1.0f, 0.843f, 0.0f, 1.0f);
         gameTitle.getData().setScale(3f);
+        gameTitleShadow.setColor(0f, 0f, 0f, 0.9f);
+        gameTitleShadow.getData().setScale(3f);
     }
 
     public void render(){
@@ -61,6 +64,13 @@ public class GameRenderer {
         for (int j=0; j<world.getPlayer().getLives(); j++){
             batch.draw(hearts, 10, 55*j+125);
         }
+        if (world.isPaused()){
+            layout.setText(title, "Game Paused");
+            title.draw(batch, layout, (800-layout.width)/2, 300f);
+
+            layout.setText(title, "Press Space to Resume");
+            title.draw(batch, layout, (800-layout.width)/2, 250f);
+        }
         if (world.isGameover()){
             layout.setText(title, "Game Over");
             title.draw(batch, layout, (800-layout.width)/2, 300f);
@@ -69,8 +79,13 @@ public class GameRenderer {
             title.draw(batch, layout, (800-layout.width)/2, 250f);
         }
         if (world.isReady()){
+            //shadow of title, slightly offset
+            layout.setText(gameTitleShadow, "Apple Catcher BETA");
+            gameTitleShadow.draw(batch, layout, ((800-layout.width)/2)+2, 400-2);
+            //title
             layout.setText(gameTitle, "Apple Catcher BETA");
             gameTitle.draw(batch, layout, (800-layout.width)/2, 400f);
+            //subtitle
             layout.setText(title, "Press space to Start");
             title.draw(batch, layout, (800-layout.width)/2, 300f);
         }
