@@ -58,11 +58,14 @@ public class GameRenderer {
         }
         //draw player
         batch.draw(world.getPlayer().getImage(), (int)world.getPlayer().x(), (int)world.getPlayer().y());
-        //draw scoreboard
-        font.draw(batch, "Score: "+world.getPlayer().getScore(), 700f, 570f);
-        //draw lives
-        for (int j=0; j<world.getPlayer().getLives(); j++){
-            batch.draw(hearts, 10, 55*j+125);
+        //don't draw lives or score if game is on the ready screen
+        if (!world.isReady()) {
+            //draw scoreboard
+            font.draw(batch, "Score: " + world.getPlayer().getScore(), 700f, 570f);
+            //draw lives
+            for (int j = 0; j < world.getPlayer().getLives(); j++) {
+                batch.draw(hearts, 10, 55 * j + 125);
+            }
         }
         if (world.isPaused()){
             layout.setText(title, "Game Paused");
