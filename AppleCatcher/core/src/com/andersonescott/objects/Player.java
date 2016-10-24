@@ -18,10 +18,6 @@ public class Player extends Entity {
         return score;
     }
 
-    public void setScore(int newValue){
-        score = newValue;
-    }
-
     public void incrementScore(int value){
         score += value;
     }
@@ -66,7 +62,7 @@ public class Player extends Entity {
         }
 
         else if (keycode == 19) { //up arrow
-            if (pressed && coords[1] == 10) {
+            if (pressed && coords[1] == 10) {//jumping functionality
                 velocity[1] = 1200;
                 acceleration[1] = -3600;
             }

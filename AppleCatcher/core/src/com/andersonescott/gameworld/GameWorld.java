@@ -123,12 +123,14 @@ public class GameWorld {
                 apples.remove(i);
             }
         }
+        //handle wall collisions for player
         if (player.x() <= 0 && player.getVelocity()[0] < 0) {
             player.setCoords(new double[]{0, player.y()});
         }
         else if (player.x() >= 700 && player.getVelocity()[0] > 0) {
             player.setCoords(new double[]{700, player.y()});
         }
+        //handle player collisions with ground
         if (player.y() <= 10 && player.getAcceleration()[1] < 0) {
             player.setAcceleration(new double[]{0, 0});
             player.setVelocity(new double[]{player.getVelocity()[0], 0});
