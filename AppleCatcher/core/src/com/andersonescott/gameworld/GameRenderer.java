@@ -19,11 +19,8 @@ public class GameRenderer {
 
     protected Texture background, hearts;
 
-<<<<<<< HEAD
-    protected BitmapFont font, title;
-=======
     protected BitmapFont font, title, gameTitle, gameTitleShadow;
->>>>>>> origin/master
+
     protected GlyphLayout layout;
 
     public GameRenderer(GameWorld tempWorld){
@@ -38,12 +35,8 @@ public class GameRenderer {
         cam.setToOrtho(true, 800, 600);
         //load fonts
         font = new BitmapFont();
-<<<<<<< HEAD
         title = new BitmapFont();
         layout = new GlyphLayout();
-
-=======
->>>>>>> origin/master
         font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
 
         title = new BitmapFont();
@@ -102,8 +95,6 @@ public class GameRenderer {
         }
         //draw title screen
         if (world.isReady()){
-<<<<<<< HEAD
-=======
             //shadow of title, slightly offset
             layout.setText(gameTitleShadow, "Apple Catcher BETA");
             gameTitleShadow.draw(batch, layout, ((800-layout.width)/2)+2, 400-2);
@@ -111,7 +102,6 @@ public class GameRenderer {
             layout.setText(gameTitle, "Apple Catcher BETA");
             gameTitle.draw(batch, layout, (800-layout.width)/2, 400f);
             //subtitle
->>>>>>> origin/master
             layout.setText(title, "Press space to Start");
             title.draw(batch, layout, (800-layout.width)/2, 300f);
         }
