@@ -9,7 +9,7 @@ public class Apple extends Entity {
         super(tempCoords);
         image = new Texture("applecatcher_apple.png");
         acceleration = new double[]{0, -1200};
-        velocity = new double[]{Math.random()*200 - 100, 200};
+        velocity = new double[]{Math.random()*200 - 100, 200};//this adds the cool bit of random movement when the apple spawns
     }
 
 }

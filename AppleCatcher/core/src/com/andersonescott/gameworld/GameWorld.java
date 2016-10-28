@@ -20,7 +20,7 @@ public class GameWorld {
     protected GameState gameState;
 
     public enum GameState {
-        READY, RUNNING, GAMEOVER
+        READY, RUNNING, GAMEOVER, PAUSED
     }
 
     public GameWorld(){
@@ -29,7 +29,14 @@ public class GameWorld {
     }
 
     public void start(){
-        player.restart();
+        gameState = GameState.RUNNING;
+    }
+
+    public void pause(){
+        gameState = GameState.PAUSED;
+    }
+
+    public void resume(){
         gameState = GameState.RUNNING;
     }
 
@@ -37,7 +44,8 @@ public class GameWorld {
         switch (gameState){
             case RUNNING:
                 updateRunning(delta);
-
+            case PAUSED:
+                //do nothing
             case GAMEOVER:
                 //TODO
             case READY:
@@ -82,6 +90,10 @@ public class GameWorld {
         return gameState == GameState.GAMEOVER;
     }
 
+    public boolean isPaused() {
+        return gameState == GameState.PAUSED;
+    }
+
     public boolean appleCount() {
         counter++;
         num = counter;
@@ -111,12 +123,14 @@ public class GameWorld {
                 apples.remove(i);
             }
         }
+        //handle wall collisions for player
         if (player.x() <= 0 && player.getVelocity()[0] < 0) {
             player.setCoords(new double[]{0, player.y()});
         }
         else if (player.x() >= 700 && player.getVelocity()[0] > 0) {
             player.setCoords(new double[]{700, player.y()});
         }
+        //handle player collisions with ground
         if (player.y() <= 10 && player.getAcceleration()[1] < 0) {
             player.setAcceleration(new double[]{0, 0});
             player.setVelocity(new double[]{player.getVelocity()[0], 0});

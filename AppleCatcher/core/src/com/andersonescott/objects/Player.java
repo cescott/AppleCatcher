@@ -18,10 +18,6 @@ public class Player extends Entity {
         return score;
     }
 
-    public void setScore(int newValue){
-        score = newValue;
-    }
-
     public void incrementScore(int value){
         score += value;
     }
@@ -45,28 +41,28 @@ public class Player extends Entity {
         lives = 3;
     }
 
-    public void input(String state, int keycode){
+    public void input(boolean pressed, int keycode){
 
         if (keycode == 21){ //left arrow
-            if (state.equals("pressed")) {
+            if (pressed) {
                 velocity[0] = velocity[0] - 800;
             }
-            else if (state.equals("released")){
+            else {
                 velocity[0] = velocity[0] + 800;
             }
         }
 
         else if (keycode == 22){ //right arrow
-            if (state.equals("pressed")) {
+            if (pressed) {
                 velocity[0] = velocity[0] + 800;
             }
-            else if (state.equals("released")){
+            else {
                 velocity[0] = velocity[0] - 800;
             }
         }
 
         else if (keycode == 19) { //up arrow
-            if (state.equals("pressed") && coords[1] == 10) {
+            if (pressed && coords[1] == 10) {//jumping functionality
                 velocity[1] = 1200;
                 acceleration[1] = -3600;
             }

@@ -3,9 +3,11 @@ package com.andersonescott.objects;
 import com.badlogic.gdx.graphics.Texture;
 
 public abstract class Entity {
+
     protected double[] coords = new double[2];
     protected double[] velocity = new double[2];
     protected double[] acceleration = new double[2];
+
     protected Texture image;
 
     public Entity (double[] tempCoords){
